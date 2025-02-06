@@ -24,14 +24,20 @@ def extract_sudoku_grid(image_path):
     return gray[y:y+h, x:x+w]
 
 def extract_numbers_from_grid(sudoku_grid_img):
-    cell_size = sudoku_grid_img.shape[0] // 9
-    grid = [[0 for _ in range(9)] for _ in range(9)]
+    cell_size = sudoku_grid_img.shape[1] // 9
+    
+    grid = []
+    for i in range(9):
+       grid.append([0] * 9)
+ 
     
     for i in range(9):
         for j in range(9):
             x1, y1 = j * cell_size, i * cell_size
             x2, y2 = (j + 1) * cell_size, (i + 1) * cell_size
             cell = sudoku_grid_img[y1:y2, x1:x2]
+
+            
             
             # Empty check
             if cell.size == 0:
@@ -76,6 +82,8 @@ def solve_sudoku(grid):
 
 def print_karo(image_path):
     sudoku_grid_img = extract_sudoku_grid(image_path)
+
+     
     sudoku_grid = extract_numbers_from_grid(sudoku_grid_img)
     
     print("Extracted Sudoku Grid : ")
