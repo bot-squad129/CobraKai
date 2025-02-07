@@ -1,0 +1,200 @@
+<!-- {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input</title>
+</head>
+<body>
+    <form method="get" action="{% url 'output-page' %}">
+
+        <input type="file" name="img">
+        <input type="submit" value="submit">
+
+    </form>
+</body>
+</html> -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CobraKai</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #111, #333);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+            overflow: hidden;
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #FF5733;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 8px rgba(255, 87, 51, 0.8);
+            letter-spacing: 2px;
+            animation: titleAnimation 2s ease-in-out;
+        }
+
+        /* Form styling */
+        form {
+            background-color: rgba(34, 34, 34, 0.85);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 450px;
+            backdrop-filter: blur(10px);
+            animation: formAnimation 1s ease-out;
+        }
+
+        input[type="file"], input[type="submit"] {
+            border-radius: 10px;
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        /* Input field styling */
+        input[type="file"] {
+            background-color: #333;
+            border: 2px solid #555;
+            margin-bottom: 20px;
+            color: transparent;
+        }
+
+        input[type="file"]:hover {
+            background-color: #444;
+            border-color: #FF5733;
+        }
+
+        input[type="file"]:focus {
+            background-color: #555;
+            border-color: #FF5733;
+            outline: none;
+        }
+
+        /* Submit button styling */
+        input[type="submit"] {
+            background-color: #FF5733;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #C94D2C;
+            transform: scale(1.05);
+        }
+
+        input[type="submit"]:active {
+            background-color: #C94D2C;
+            transform: scale(0.98);
+        }
+
+        /* File input custom label and file name display */
+        .file-upload-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .file-upload-label {
+            display: inline-block;
+            background-color: #444;
+            padding: 12px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .file-name {
+            color: #fff;
+            font-size: 1rem;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Background Gradient Animation */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Title animation */
+        @keyframes titleAnimation {
+            0% { opacity: 0; transform: translateY(-50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Form animation */
+        @keyframes formAnimation {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+        footer {
+            position: fixed;
+            bottom: 20px;
+            font-size: 0.9rem;
+            color: #bbb;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>CobraKai</h1>
+
+    <form method="get" action="{% url 'output-page' %}">
+        <div class="file-upload-container">
+            <label for="file-upload" class="file-upload-label">Choose a sudoku img</label>
+            <input type="file" name="img" id="file-upload" style="display: none;" onchange="displayFileName()">
+            <p id="file-name" class="file-name">No file chosen</p>
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+
+    <footer>
+        <p>Powered by CobraKai | 2025</p>
+    </footer>
+
+    <script>
+        function displayFileName() {
+            const fileInput = document.getElementById('file-upload');
+            const fileName = document.getElementById('file-name');
+
+            if (fileInput.files && fileInput.files[0]) {
+                fileName.textContent = fileInput.files[0].name;
+            } else {
+                fileName.textContent = "No file chosen";
+            }
+        }
+    </script>
+
+</body>
+</html>

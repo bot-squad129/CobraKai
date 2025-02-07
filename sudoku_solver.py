@@ -81,22 +81,25 @@ def solve_sudoku(grid):
     return True
 
 def print_karo(image_path):
-    sudoku_grid_img = extract_sudoku_grid(image_path)
+    path="./test_images/"+image_path
+    sudoku_grid_img = extract_sudoku_grid(path)
 
      
     sudoku_grid = extract_numbers_from_grid(sudoku_grid_img)
     
-    print("Extracted Sudoku Grid : ")
-    for row in sudoku_grid:
-        print(row)
+    
     
     if solve_sudoku(sudoku_grid):
-        print("\nSolved Sudoku Grid : ")
-        for row in sudoku_grid:
-            print(row)
+        return sudoku_grid
+        
     else:
-        print("\nNo solution found")
+        return None
+    
+    
+
 
 # Run karo
-image_path = "sudoku_10.png" 
-print_karo(image_path)
+# image_path = "sudoku_114.png" 
+# grid = print_karo("./test images/"+image_path)
+
+# print(grid)

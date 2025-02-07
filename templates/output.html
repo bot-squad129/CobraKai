@@ -1,0 +1,146 @@
+<!-- {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Output</title>
+</head>
+<body>
+    <h1>output</h1>
+
+    {% for list in data %}
+        {% for item in list %}
+            <span>{{ item }}</span>
+        {% endfor %}
+        <br>
+    {% endfor %}
+    
+</body>
+</html> -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Output</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #111, #333);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+            overflow: hidden;
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #FF5733;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 8px rgba(255, 87, 51, 0.8);
+            letter-spacing: 2px;
+            animation: titleAnimation 2s ease-in-out;
+        }
+
+        /* Sudoku grid styles */
+        .sudoku-grid {
+            display: grid;
+            grid-template-columns: repeat(9, 1fr);
+            grid-gap: 5px;
+            justify-items: center;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        .sudoku-cell {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #333;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+
+        .sudoku-cell:hover {
+            background-color: #FF5733;
+            transform: scale(1.1);
+        }
+
+        /* Back Arrow */
+        .back-arrow {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 2rem;
+            color: #FF5733;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .back-arrow:hover {
+            color: #C94D2C;
+        }
+
+        /* Footer */
+        footer {
+            position: fixed;
+            bottom: 20px;
+            font-size: 0.9rem;
+            color: #bbb;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Background Gradient Animation */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Title animation */
+        @keyframes titleAnimation {
+            0% { opacity: 0; transform: translateY(-50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <a href="javascript:history.back()" class="back-arrow">&#8592; Back</a>
+
+    <h1>Sudoku Solution</h1>
+
+    <div class="sudoku-grid">
+        {% for list in data %}
+            {% for item in list %}
+                <div class="sudoku-cell">
+                    {{ item }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+
+    <footer>
+        <p>Powered by CobraKai | 2025</p>
+    </footer>
+
+</body>
+</html>
