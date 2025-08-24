@@ -25,3 +25,5 @@ sudo apt install tesseract-ocr
 https://github.com/user-attachments/assets/977a2c7d-e3db-4c22-90ca-17031c9dc004
 
 <img width="1872" height="952" alt="Image" src="https://github.com/user-attachments/assets/2542fffe-8686-4616-b764-4a74c6833083" />
+
+<img width="1837" height="888" alt="Image" src="https://github.com/user-attachments/assets/281a03d7-7dd7-4897-ba24-e3355d9790cb" />
