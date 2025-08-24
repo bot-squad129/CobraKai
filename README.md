@@ -21,3 +21,5 @@ sudo apt install tesseract-ocr
 4. **Verify the installation** by running this command in **Command Prompt**:
    ```bash
    tesseract --version
+
+https://github.com/bot-squad129/CobraKai/issues/1#issue-3349374163
