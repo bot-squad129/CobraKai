@@ -22,4 +22,4 @@ sudo apt install tesseract-ocr
    ```bash
    tesseract --version
 
-https://github.com/bot-squad129/CobraKai/issues/1#issue-3349374163
+https://github.com/user-attachments/assets/977a2c7d-e3db-4c22-90ca-17031c9dc004
